@@ -12,12 +12,21 @@
   <h1><center>Six Degrees of Spiderman</center></h1>
   <h3><center>A Marvel Comics Network Graph</center></h3>  
   <h4><center>
-    Which Heroes are Connected the Most?
+    Which Heroes are Connected the Most/Least?
     <br>
-    50 Heroes with the most connections
+    50 Heroes with the Most/Least connections
   </center></h4>
   <div>
-    <center><BarChart {data}/></center>
+    <center>
+      <span>Most</span>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+      <span>Least</span>
+      <br>
+      <BarChart {data}/>
+    </center>
   </div>
   <h4><center>Prototype Write Up:</center></h4>
   <div>
@@ -88,93 +97,72 @@
     color: rgba(200, 200, 200, 1);
   }
 
-  .overlay2 {
-    font-size: 0.9em;
-    background-color: rgba(100, 100, 100, 0.1);
-    position: absolute;
-    min-width:250px;
-    width: 15%;
-    top: 10px;
-    left: 10px;
-    padding: 10px;
-    z-index: 3;
-    font-family: sans-serif;
-    font-weight: lighter;
-    color: rgba(200, 200, 200, 1);
-  }
-
-  .overlay3 {
-    font-size: 0.9em;
-    background-color: #6464641a;
-    position: absolute;
-    min-width:250px;
-    width: 15%;
-    top: 380px;
-    right: 10px;
-    padding: 10px;
-    z-index: 3;
-    font-family: sans-serif;
-    font-weight: lighter;
-    color: rgba(200, 200, 200, 1);
-    overflow: auto;
-    max-height: 400px;
-  }
-
-  .overlay4 {
-  font-size: 0.6em;
-  background-color: rgba(100, 100, 100, 0.1);
-  position: absolute;
-  min-width: 250px;
-  width: 15%;
-  top: 165px;
-  right: 10px;
-  padding: 10px;
-  z-index: 3;
-  font-family: sans-serif;
-  font-weight: lighter;
-  color: rgba(200, 200, 200, 1);
-}
-
-  .cuisine-label {
-    font-size: 2.2em
-  }
-
   label {
     font-size: 1.5em;
     font-family: sans-serif;
     font-weight: lighter;
   }
 
-  .label2 {
-    font-size: 1em;
-    font-family: sans-serif;
-    font-weight: lighter;
-  }
-  a:link {
-    color: red;
-    background-color: transparent;
-    text-decoration: none;
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
   }
 
-  a:visited {
-    color: red;
-    background-color: transparent;
-    text-decoration: none;
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
   }
-  .checkboxes {
-    display: flex;
-    align-items: center;
-    margin-bottom:5px;
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
   }
-  .checkbox-container {
-    display: grid;
-    grid-template-columns: auto;
-    gap: 5px;
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
   }
-  .checkbox-label {
-    display: flex;
-    align-items: center;
-    visibility:hidden;
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
   }
 
 </style>
