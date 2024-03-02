@@ -1,5 +1,8 @@
 <script>
     import { scaleBand, scaleLinear } from "d3-scale";
+    import { select, selectAll} from "d3-selection";
+    import { onMount } from "svelte";
+
   
     export let data;
 
@@ -18,6 +21,23 @@
       .domain([0, Math.max.apply(0, yDomain)])
       .range([0, innerWidth]);
     
+
+      onMount(() => {
+        const bars = selectAll(".bar");
+
+        bars.on("mouseover", function (_, d) {
+          select(this).attr("fill", "lightgray");
+        });
+
+        bars.on("mouseout", function (_, d) {
+          select(this).attr("fill", "black");
+        });
+
+        return () => {
+          bars.on("mouseover", null);
+          bars.on("mouseout", null);
+        };
+      });
   </script>
   
   <svg {width} {height}>
@@ -44,7 +64,8 @@
           y={yScale(d.hero1)}
           width={xScale(d.value)}
           height={yScale.bandwidth()/1.25}
-          color='red'
+          fill="black"
+          class="bar"
         />
       {/each}
     </g>
