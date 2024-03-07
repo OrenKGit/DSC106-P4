@@ -33,11 +33,11 @@
     <center>
     <b><center>What Have We Done So Far?</center></b>
     <br>
-    So far we have spent the majority of our time discussing and planning out our final visualizations.
+    So far we have spent the majority of our time discussing and planning out our final visualizations, from choosing our project idea to finding appropriate data.
     <br>
     We spent a lot of time finding a suitable dataset to demonstrate the sociology phenomenon that we are aiming to visualize/explain.
     <br>
-    We also spent considerable time attempting to build a basic network graph visualization but haven't yet succeeded.
+    We also spent considerable time attempting to build a basic network graph visualization but haven't yet succeeded since there are a too many nodes that are connected together.
     <br>
     Currently we have a chart showing the most connected Marvel characters that will serve as extra information
     <br>
@@ -49,7 +49,9 @@
     <br>
     We have already been struggling to implement the network graph and we believe our desired final implementation will require
     <br>
-    a shortest path algorithm on top of animations on the network graph.
+    a shortest path algorithm on top of animations on the network graph. We are also considering implementing a scrollytelling of the network graph 
+    <br>
+    to zoom into specific nodes and explore components of it, but we think it will most likely be difficult to make it functional and clean.
     <br>
     We plan to allow the reader to select two heroes of their choice through a dropdown menu which will then show 
     <br>
